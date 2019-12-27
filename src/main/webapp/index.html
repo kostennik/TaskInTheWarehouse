@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <script type="module" src="/js/login.js"></script>
+  </head>
+  <body>
+
+    <div class="fakeLoader"></div>
+
+    <form method="POST" action="" id="login" name="form">
+      <fieldset>
+        <legend>Witam, user:</legend>
+        <label for="iam">Jestem: </label>
+        <input type="radio" name="iam" value="brigadista" checked/>brigadistem
+        <input type="radio" name="iam" value="operator"/>operatorem
+        <input type="text" id="name" name="name" required autofocus
+               value="" placeholder="Napisz imię lub piętro i naciśnij klawisz enter"/><br/>
+        <input type="submit" id="btnSendName" value="Potwierdź" name="submit">
+        <input type="hidden" name="action" value="addTasks" id="action">
+      </fieldset>
+    </form>
+
+  </body>
+</html>
