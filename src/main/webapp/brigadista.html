@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="private">
+    <title>Brigadista</title>
+
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <script type="module" src="js/index.js"></script>
+    <script type="module" src="js/brigadista.js"></script>
+
+  </head>
+  <body>
+    <div class="fakeLoader"></div>
+
+    <div id="headerDiv">
+      <div id="welcome"></div>
+      <div id="logout"><a href="/index.html">Wyloguj</a></div>
+    </div>
+    <br>
+    <br>
+    <form id="addTasks" name="addTasks" action="" method="post">
+      <input type="text" required id="description_task" name="description_task" autofocus
+             value="" placeholder="Wpisz wiadomość ta naciśnij klawisz enter" maxlength="100"/>
+      <label for="checkboxscale"">Prio:</label>
+      <input type="checkbox" id="checkboxscale" value="yes" name="priority"/>
+      <label for="number_input">Ilość</label>
+      <input type="number" id="number_input" name="quantity" value="1" size="30px">
+
+      <input type="button" value="Add Task" id="btnSave" name="btnSave" style="visibility: hidden;">
+      <input type="hidden" name="action" value="addTasks" id="action">
+      <input id="userNameForm" type="hidden" value="" name="username">
+    </form>
+    </br>
+    </br>
+
+    <div id="divInfo"><h2></h2></div>
+    <div id="tableDiv">
+      <table id="table"></table>
+    </div>
+  </body>
+</html>
