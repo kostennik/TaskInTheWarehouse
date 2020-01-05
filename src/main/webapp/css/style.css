@@ -1,0 +1,162 @@
+body {
+    font-size: 16px;
+    font-family: sans-serif;
+    width: 99%;
+}
+
+h2 {
+    font-size: 0.9em;
+    color: #6e6e6e;
+    text-align: center;
+}
+
+/*общие свойства блока формы*/
+#form {
+    width: 100%;
+    text-align: center;
+}
+
+/*текстовые метки формы ввода*/
+#form label {
+    /*width: 150px;*/
+    font-size: 0.8em;
+    color: #717373;
+    display: inline-block;
+}
+
+/*текстовое поле формы ввода*/
+#description_task {
+    width: 85%;
+}
+
+/*числовое поле формы ввода*/
+#number_input {
+    width: 3%;
+}
+#tableDiv{
+    width: 98%;
+}
+/*свойства таблицы*/
+table#table {
+    caption-side: bottom;
+    border: thin solid #111111;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+/*свойства ячеек таблицы*/
+th, td {
+    border: thin dotted #32372f;
+    padding: 5px;
+}
+
+/*свойства заголовка таблицы*/
+th {
+    background-color: #95a1a2;
+    font-size: 0.8em;
+}
+
+/*кнопка в интерфейсе оператор*/
+#submit_operator {
+    margin-top: 1%;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 80%;
+    padding: 6px 10px 6px 10px;
+    background-color: #95a1a2;
+    box-shadow: 0 6px 4px 0 #6e6e6e;
+}
+
+#submit_operator:hover {
+    background-color: #b6c8c6;
+    box-shadow: none;
+}
+
+/*строка приоритета*/
+.priority {
+    background-color: #ff9c91;
+    color: #000;
+}
+
+/*увеличенные значки чекбокса */
+#checkboxscale {
+    transform: scale(1.5);
+    opacity: 0.9;
+    cursor: pointer;
+    margin: 2px;
+}
+
+/*уведомлениее*/
+.notify {
+    color: #8b9790;
+    font-size: 0.7em;
+}
+
+/*сообщение об отсуствии документов*/
+#brak_dokumentow {
+    color: #0000cc;
+    text-align: center;
+}
+#headerDiv{
+    display: inline-block;
+    width: 100%;
+}
+#headerDiv #welcome{
+    float: left;
+}
+/*ссылка выход с приложения в хидере*/
+#headerDiv #logout {
+    float: right;
+    margin-right: 20px;
+}
+
+/*окно авторизации в целом*/
+#login {
+    color: #626e6f;
+    text-align: center;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    /*box-shadow: 0 10px 10px rgba(58, 58, 58, 0.5);*/
+    /*padding: 100px;*/
+}
+#btnSendName{
+    visibility: hidden;
+}
+#login input[type="radio"]:checked{
+    transform: scale(1.2);
+}
+
+/*текстовое поле ввода авторизации*/
+#login #name {
+    width: 80%;
+    margin-top: 8px;
+}
+
+/*линия - легенда в форме авторизации*/
+fieldset {
+    border: thin dotted gray;
+    padding: 30px;
+}
+
+
+tr{
+    cursor: pointer;
+}
+tr:active{
+    background-color: #67958a;
+}
+/*все значения внутри ячеек*/
+.timeAgo{
+    font-weight: lighter;
+    font-size: 0.8em;
+}
+#time_th{
+    width: 8%;
+    max-width: 10%;
+}
+
+
