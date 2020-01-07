@@ -1,7 +1,6 @@
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 @JsonAutoDetect
 public class Task implements Serializable {
@@ -10,16 +9,7 @@ public class Task implements Serializable {
     private String descriptionTask;
     private String priority;
     private int quantity;
-    private Date datetime;
-
-    public Task(int id, String username, String task, String priority, int quantity, Date datetime) {
-        this.id = id;
-        this.username = username;
-        this.descriptionTask = task;
-        this.priority = priority;
-        this.quantity = quantity;
-        this.datetime = datetime;
-    }
+    private long timeUTC;
 
     public Task(int id, String username, String descriptionTask, String priority, int quantity) {
         this.id = id;
@@ -34,6 +24,18 @@ public class Task implements Serializable {
         this.descriptionTask = descriptionTask;
         this.priority = priority;
         this.quantity = quantity;
+    }
+
+    public Task() {
+    }
+
+    public Task(int id, String username, String descriptionTask, String priority, int quantity, long timeUTC) {
+        this.id = id;
+        this.username = username;
+        this.descriptionTask = descriptionTask;
+        this.priority = priority;
+        this.quantity = quantity;
+        this.timeUTC = timeUTC;
     }
 
     public int getId() {
@@ -72,17 +74,8 @@ public class Task implements Serializable {
         return quantity;
     }
 
-
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public Date getDatetime() {
-        return datetime;
-    }
-
-    public void setDatetime(Date datetime) {
-        this.datetime = datetime;
     }
 
     @Override
@@ -93,7 +86,6 @@ public class Task implements Serializable {
                 ", descriptionTask='" + descriptionTask + '\'' +
                 ", priority='" + priority + '\'' +
                 ", quantity=" + quantity +
-                ", datetime=" + datetime +
                 '}';
     }
 }

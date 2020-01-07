@@ -2,7 +2,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class TaskDB {
-    private static String url = "jdbc:mysql://localhost/wozkowy?serverTimezone=Europe/Warsaw&useSSL=false";
+    private static String url = "jdbc:mysql://localhost/wozkowy?serverTimezone=GMT%2B8&useSSL=false";
     private static String username = "user";
     private static String password = "password";
 
@@ -22,10 +22,12 @@ public class TaskDB {
                     String descriptionTask = resultSet.getString(3);
                     String priority = resultSet.getString(4);
                     int quantity = resultSet.getInt(5);
-                    Date datetime = resultSet.getDate(6);
+                    long timeUTC = resultSet.getLong(7);
+                    System.out.println(timeUTC);
 
-                    Task task = new Task(id, username, descriptionTask, priority, quantity, datetime);
+                    Task task = new Task(id, username, descriptionTask, priority, quantity, timeUTC);
                     tasks.add(task);
+                    System.out.println(task);
                 }
             }
         } catch (Exception ex) {
@@ -40,12 +42,14 @@ public class TaskDB {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(url, username, password)) {
 
-                String sql = "INSERT INTO tasks (username, description_task, priority, quantity) Values (?, ?, ?, ?)";
+                String sql = "INSERT INTO tasks (username, description_task, priority, quantity, time) Values (?, ?, ?, ?, ?)";
                 try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
                     preparedStatement.setString(1, task.getUsername());
                     preparedStatement.setString(2, task.getDescription_task());
                     preparedStatement.setString(3, task.getPriority());
                     preparedStatement.setInt(4, task.getQuantity());
+                    preparedStatement.setLong(5, new java.util.Date().getTime()); //set UTC-datetime in DB
+
 
                     return preparedStatement.executeUpdate();
                 }
