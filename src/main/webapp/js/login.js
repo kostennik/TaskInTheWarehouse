@@ -1,4 +1,5 @@
 import {writeCookie} from "./index.js";
+import {selectCSS} from "./index.js";
 import {readCookie} from "./index.js";
 
 function redirectLastPage() {
@@ -8,6 +9,9 @@ function redirectLastPage() {
 }
 
 $(document).ready(() => {
+  //change style
+  selectCSS();
+
   //Redirect to the last page.
   redirectLastPage();
 

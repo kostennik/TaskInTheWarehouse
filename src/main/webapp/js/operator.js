@@ -12,15 +12,13 @@ function deleteElementFromServer(parentID) {
     console.log(parentID);
 
 
-    $.post("/api/deleteTask", elemToRemove, (json) => {
+    $.post("api/deleteTask", elemToRemove, (json) => {
         console.log(json.message);
     }, "json");
   }
 }
 
 $(document).ready(function () {
-
-  preloadAnimation();
   console.log("fakeloader");
   console.log("pkoekdo");
   checkUserName();

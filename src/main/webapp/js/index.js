@@ -1,11 +1,11 @@
-let FREQ = 10000; //interval to update
+let FREQ = 500000; //interval to update
 // let username = readCookie("username");
 let repeat = true; //repeat auto-update
 
 
 export function getDBTasks() {
   console.log("upload page...");
-  $.getJSON("/api/tasks", (json) => {
+  $.getJSON("api/getTasks", (json) => {
     console.log(json);
     if (json.length > 0) {
       console.log("refresh..(in getDBTasks)");
@@ -36,6 +36,28 @@ export function writeCookie(name, value, days) {
   }
 // Set the cookie to the name, value, and expiration date
   document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+export function selectCSS() {
+  let style = document.createElement("link");
+  style.rel = "stylesheet";
+  style.href = "css/style.css";
+  document.getElementsByTagName("head")[0].appendChild(style);
+
+  if (device.mobile()) {
+    let style_mobile = document.createElement("link");
+    style_mobile.rel = "stylesheet";
+    style_mobile.href = "css/style_mobile.css";
+    document.getElementsByTagName("head")[0].appendChild(style_mobile);
+
+  } else if (device.desktop()) {
+  } else {
+    // alert("I am tablet");
+    let style_tablet = document.createElement("link");
+    style_tablet.rel = "stylesheet";
+    style_tablet.href = "css/style_tablet.css";
+    document.getElementsByTagName("head")[0].appendChild(style_tablet);
+  }
 }
 
 export function showUserName() {
@@ -74,14 +96,14 @@ function fillingTable(json) {
 
   $.each(json, function () { //don`t change on =>!
     let tr = '<tr id=' + this.id + '>'; //set id
-    timeFromDB = this.datetime;
-    if (this.priority === 'yes') {
+    timeFromDB = this.time;
+    if (this.priority === true) {
       tr = '<tr id="' + this.id + '" class="priority">'; //set id $ class
     }
     let tmp =
       tr +
-      '<td>' + '<em>' + this.username + ': </em>' + this.descriptionTask + '</td>' +
-      '<td class="timeAgo">' + timeAgoShow(this.datetime) + '</td>' +   //time!!!!!!!!!!!!!!!
+      '<td>' + '<em>' + this.userName + ': </em>' + this.descriptionTask + '</td>' +
+      '<td class="timeAgo">' + timeAgoShow(this.timestamp) + '</td>' +   //time!!!!!!!!!!!!!!!
       '<td>' + this.quantity + '</td>' +
       '</tr>';
     $("#table").append(tmp);
@@ -99,12 +121,9 @@ function fillingTable(json) {
  * @param datetime the time from server (Data Base)
  * @returns {string} how many time age
  */
-function timeAgoShow(datetime) {
+function timeAgoShow(timeFromDB) {
   let timeNow = new Date().getTime(); //time from client browser in milliseconds
-  console.log(datetime);
-  console.log(timeNow);
-  let timeServer = datetime; //time from DataBase in milliseconds
-  let difference = Math.floor((timeNow - timeServer) / 1000 / 60);
+  let difference = Math.floor((timeNow - Date.parse(timeFromDB)) / 1000 / 60);
   return difference + ' minut temu';
 }
 
@@ -136,6 +155,7 @@ Date.prototype.toString = () => {
 };
 
 $(document).ready(() => {
+  selectCSS();
   getDBTasks();
   startAJAXcalls();
   window.onblur = () => {

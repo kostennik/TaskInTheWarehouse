@@ -14,10 +14,13 @@ function postData() {
   data.push(datetime);
   console.log(data);
 
-  $.post("api/tasks", data, (res) => {
-      getDBTasks();
-      clearInputs();
+  $.post("api/addTasks", data, (res) => {
+    console.log(res);
+    getDBTasks();
+    clearInputs();
   }, "json");
+
+
 }
 
 $(document).ready(() => {
@@ -38,6 +41,7 @@ $(document).ready(() => {
     document.getElementById("description_task").focus();
   }; //only focus in textinput
 });
+
 
 
 
