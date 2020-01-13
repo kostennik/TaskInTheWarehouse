@@ -1,6 +1,8 @@
 import {getDBTasks} from "./index.js";
 import {showUserName} from "./index.js";
 import {checkUserName} from "./index.js";
+import {preloadAnimation} from "./index.js";
+
 
 function deleteElementFromServer(parentID) {
   if (confirm("Delete task?")) {
@@ -15,10 +17,22 @@ function deleteElementFromServer(parentID) {
     $.post("api/deleteTask", elemToRemove, (json) => {
         console.log(json.message);
     }, "json");
+    // getDBTasks();
+
+    // $.ajax({
+    //   url: "/api/tasks",
+    //   type: 'DELETE',
+    //   data: elemToRemove,
+    //   success: function(result) {
+    //     // Do something with the result
+    //   }
+    // });
   }
 }
 
 $(document).ready(function () {
+
+  preloadAnimation();
   console.log("fakeloader");
   console.log("pkoekdo");
   checkUserName();

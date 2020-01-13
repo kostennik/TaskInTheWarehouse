@@ -2,6 +2,8 @@ import {getDBTasks} from "./index.js";
 import {showUserName} from "./index.js";
 import {readCookie} from "./index.js";
 import {checkUserName} from "./index.js";
+import {preloadAnimation} from "./index.js";
+
 
 function clearInputs() {
   $("#description_task").val('');
@@ -24,6 +26,7 @@ function postData() {
 }
 
 $(document).ready(() => {
+  preloadAnimation();
   checkUserName();
   showUserName();
   $("#userNameForm").val(readCookie('userName'));

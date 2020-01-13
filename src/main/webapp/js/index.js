@@ -150,11 +150,20 @@ export function checkUserName() {
   }
 }
 
+export function preloadAnimation(){
+
+  $.fakeLoader({
+    timeToHide: 500,
+    spinner: 'spinner2',
+    bgColor: '#717373',
+  });
+}
 Date.prototype.toString = () => {
   return this.getDate() + "/" + (this.getMonth() + 1) + "/" + this.getFullYear();
 };
 
 $(document).ready(() => {
+  preloadAnimation();
   selectCSS();
   getDBTasks();
   startAJAXcalls();

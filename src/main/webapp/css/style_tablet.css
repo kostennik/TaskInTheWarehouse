@@ -1,0 +1,111 @@
+html body {
+    font-size: 16px;
+}
+
+/*текстовое поле формы ввода*/
+#description_task {
+    width: 80%;
+    height: 30px;
+    font-size: 0.8em;
+}
+
+/*числовое поле формы ввода*/
+#number_input {
+    width: 5%;
+    height: 30px;
+    font-size: 0.8em;
+    color: gray;
+}
+#tableDiv{
+    margin-left: auto;
+    margin-right: auto;
+    width: 97%;
+}
+/*свойства ячеек таблицы*/
+th, td {
+    border: thin dotted #32372f;
+    padding: 10px;
+}
+
+/*свойства заголовка таблицы*/
+th {
+    background-color: #95a1a2;
+    font-size: 1em;
+}
+/*кнопка в интерфейсе оператор*/
+#submit_operator {
+    margin-top: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 0.9em;
+    width: 99%;
+    height: 50px;
+    /*padding: 6px 10px 6px 100px;*/
+    background-color: #95a1a2;
+    box-shadow: 0 3px 3px 0 #b6c8c6;
+}
+/*увеличенные значки чекбокса*/
+#checkboxscale {
+    transform: scale(2);
+    opacity: 0.5;
+    cursor: pointer;
+    /*margin: 0.5em;*/
+}
+
+/*окно авторизации в целом*/
+#login {
+    font-size: 70%;
+    color: #626e6f;
+    text-align: center;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    /*background-color: #0A246A;*/
+
+}
+#btnSendName{
+    visibility: visible;
+    font-size: 3em;
+    margin-top: 30px;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /*padding: 5px 500px 5px 20px;*/
+    width: 80%;
+}
+#login input[type="radio"]{
+    transform: scale(1.1);
+    margin: 10px;
+}
+#login input[type="radio"]:checked{
+    transform: scale(1.1);
+}
+/*текстовое поле ввода авторизации*/
+#login #name {
+    width: 80%;
+    height: 50px;
+    font-size: 90%;
+    border: thin dotted black;
+    margin-top: 8px;
+
+}
+
+/*линия - легенда в форме авторизации*/
+fieldset {
+    border: thin dotted gray;
+    padding: 30px;
+}
+#btnSendName{
+    visibility: collapse;
+}
+/*подвал*/
+.footer {
+    flex: 0 0 auto;
+    margin-top: 50px;
+    width: 99%;
+    text-align: center;
+    font-size: 30%;
+    color: #9eb3b4;
+}

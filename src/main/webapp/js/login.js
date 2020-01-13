@@ -1,6 +1,7 @@
 import {writeCookie} from "./index.js";
 import {selectCSS} from "./index.js";
 import {readCookie} from "./index.js";
+import {preloadAnimation} from "./index.js";
 
 function redirectLastPage() {
   if (readCookie('userType') != null && readCookie('userName')) {
@@ -9,6 +10,8 @@ function redirectLastPage() {
 }
 
 $(document).ready(() => {
+
+  preloadAnimation();
   //change style
   selectCSS();
 
